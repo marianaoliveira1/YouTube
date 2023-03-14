@@ -26,6 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: Container(),
+      bottomNavigationBar: BottomNavigationBar(fixedColor: Colors.red, items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+        BottomNavigationBarItem(icon: Icon(Icons.whatshot), label: "Em alta"),
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+      ]),
     );
   }
 }
