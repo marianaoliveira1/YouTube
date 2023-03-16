@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:youtube/screens/telas/biblioteca_screen.dart';
+import 'package:youtube/screens/telas/emalta_screen.dart';
+import 'package:youtube/screens/telas/inicio_screen.dart';
+import 'package:youtube/screens/telas/inicio_screen.dart';
+import 'package:youtube/screens/telas/inicio_screen.dart';
+import 'package:youtube/screens/telas/inscricoes_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,6 +18,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> telas = [
+      InicioScreen(),
+      EmAltaScreen(),
+      InscricoesScreen(),
+      BibliotecaScreen(),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.grey, opacity: 1),
@@ -27,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(onPressed: () {}, icon: Icon(Icons.account_circle))
         ],
       ),
-      body: Container(),
+      body: telas[_indiceAtual],
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _indiceAtual,
           onTap: (indice) {
