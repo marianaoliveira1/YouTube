@@ -8,6 +8,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _indiceAtual = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,12 +28,24 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: Container(),
-      bottomNavigationBar: BottomNavigationBar(fixedColor: Colors.red, items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        BottomNavigationBarItem(icon: Icon(Icons.whatshot), label: "Em alta"),
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-      ]),
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _indiceAtual,
+          onTap: (indice) {
+            setState(() {
+              _indiceAtual = indice;
+            });
+          },
+          type: BottomNavigationBarType.fixed,
+          fixedColor: Colors.red,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.whatshot), label: "Em alta"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.subscriptions), label: "Inscrições"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.folder), label: "Biblioteca"),
+          ]),
     );
   }
 }
